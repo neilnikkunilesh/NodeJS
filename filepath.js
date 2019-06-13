@@ -6,15 +6,15 @@ exports.insertCentresUsingCSV =  (req, res, next) =>{
     const fileName = req.file.originalname
     console.log(`original File Name: ${fileName}`);
     
-    // var fullPath = __dirname + "/file/" + fileName;
-    // var pathNormalize = path.normalize(fullPath)
-    // console.log(`pathNormalize: ${pathNormalize}`)
+    var fullPath = __dirname + "/file/" + fileName;
+    var pathNormalize = path.normalize(fullPath)
+    console.log(`pathNormalize: ${pathNormalize}`)
     
     var appDir = path.dirname(require.main.filename);
     console.log(`App Dir ${appDir}`);
 
-    // var pathParse = path.parse(appDir)
-    // console.log("pathParse "+util.inspect(pathParse, false, null, true /* enable colors */))
+    var pathParse = path.parse(appDir)
+    console.log("pathParse "+util.inspect(pathParse, false, null, true /* enable colors */))
     
     
 
@@ -23,11 +23,11 @@ exports.insertCentresUsingCSV =  (req, res, next) =>{
 
     
     
-    // absoulatePathOfFile.forEach(element => {
-    //     console.log("root: "+element.root+" dir: "+element.dir+" base: "+element.base);
+    absoulatePathOfFile.forEach(element => {
+        console.log("root: "+element.root+" dir: "+element.dir+" base: "+element.base);
         
-    // });
-    //console.log(`fullPath: ${fullPath}`);
+    });
+    console.log(`fullPath: ${fullPath}`);
     const fileExtension = path.extname(fileName)
     if(fileExtension !== ".csv"){
         return res.status(406).json({
